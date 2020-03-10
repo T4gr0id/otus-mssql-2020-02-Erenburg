@@ -37,7 +37,7 @@ SELECT TOP (10) cp.FullName as ClientName,sp.FullName as SalesName, o.* FROM Sal
 Left join Application.People as cp on o.ContactPersonID = cp.PersonID
 left join Application.People as sp on o.SalespersonPersonID = sp.PersonID
 WHERE  o.OrderDate in (select max(tmp.OrderDate) from Sales.Orders as tmp)
-ORDER BY o.OrderID DESC,o.OrderDate DESC
+ORDER BY o.OrderDate DESC,o.OrderID DESC
 ------------------------------------------------------------------------
 -- 6 --
 SELECT o.ContactPersonID, p.FullName,p.PhoneNumber FROM Sales.Orders as o
